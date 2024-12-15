@@ -1,5 +1,6 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -79,17 +80,47 @@ public class FileTrack {
 	}
 	
 	// SHOW LIST OF TASKS
-	public void showTask() {
+	public void showTask(String statusSelect) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		File f = new File("taskfolder/");
-		try{
+		
+		// if show all tasks
+		if(statusSelect.equalsIgnoreCase("all")){
 			for(File files : f.listFiles()) {
 				fileTask = mapper.readValue(files,Task.class);
 				System.out.println(" "+ "\n"+fileTask + "\n ");
 			}
-		} catch(Exception e){
-			e.printStackTrace();
+
+		// if show "Todo" tasks only
+		}else if(statusSelect.equalsIgnoreCase("todo")||statusSelect.equalsIgnoreCase("to-do")) {
+			for(File files : f.listFiles()) {
+				fileTask = mapper.readValue(files,Task.class);
+				if(fileTask.getStatus().equals("Todo")){
+					System.out.println(" "+ "\n"+fileTask + "\n ");
+				}
+			}
+
+		// if show "In-progress" tasks only
+		}else if(statusSelect.equalsIgnoreCase("inprogress")||statusSelect.equalsIgnoreCase("in-progress")) {
+			for(File files : f.listFiles()){
+				fileTask = mapper.readValue(files,Task.class);
+				if(fileTask.getStatus().equals("In-progress")) {
+					System.out.println(" "+ "\n"+fileTask + "\n");
+				}
+			}
+
+		// if show "Done" tasks only	
+		}else if(statusSelect.equalsIgnoreCase("done")) {
+			for(File files : f.listFiles()){
+				fileTask = mapper.readValue(files,Task.class);
+				if(fileTask.getStatus().equals("Done")) {
+					System.out.println(" "+ "\n"+fileTask + "\n");
+				}
+			}
+		}else {
+			System.out.println("Task status can only be one of the following: [\"Todo\", \"In-progress\", \"Done\"]");
 		}
+		
 	}
 
 	// UPDATE TASK
@@ -100,6 +131,7 @@ public class FileTrack {
 
 		int idNum = Integer.parseInt(keyId);
 
+		// Iterately read each file in taskfolder
 		String choseFilePath=" ";
 		try{
 			for (File tasks : f.listFiles()) {
@@ -114,6 +146,7 @@ public class FileTrack {
 
 		File fileToUpdate = new File(choseFilePath);
 
+		// code to run if file exists
 		if(fileToUpdate.exists()) {
 			try {
 				fileTask = mapper.readValue(fileToUpdate, Task.class);
@@ -131,6 +164,7 @@ public class FileTrack {
 			String toUpdatedAt = timeUpdated.format(DateTimeFormatter.ofPattern("yyyy-MM-dd:mm:ss"));
 			fileTask.setUpdatedAt(toUpdatedAt);
 
+			// Ask user to mark task progress
 			boolean progressChoice=false;
 			while(progressChoice!=true){
 				System.out.println("Mark Task progress (Todo/In-progress/Done)");
@@ -149,8 +183,8 @@ public class FileTrack {
 				}
 			}
 
+			// write changes to file
 			String jFormatTaskUpdate = " ";
-
 			try{
 				jFormatTaskUpdate = mapper.writeValueAsString(fileTask);
 				BufferedWriter bwriter = new BufferedWriter(new FileWriter(choseFilePath));
@@ -177,26 +211,38 @@ public class FileTrack {
 
 		ObjectMapper mapper = new ObjectMapper();
 
-		int idNum = Integer.parseInt(keyId);
-
-		String filePathToDel=" ";
-		try{
+		//this code snippet functions to delete all tasks
+		if(keyId.equalsIgnoreCase("all")){
 			for(File tasks : f.listFiles()) {
-				Task taskList = mapper.readValue(tasks, Task.class);
-				if(taskList.getId()==idNum) {
-					filePathToDel = tasks.getAbsolutePath();
-				}
+				tasks.delete();
 			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		File deleteFile = new File(filePathToDel);
-		if(deleteFile.exists()){
-			deleteFile.delete();
-			System.out.println("File deleted");
+			System.out.println("All tasks are deleted");
+		
+		// else if delete only 1 file
 		} else {
-			System.out.println("File does not exist");
+			int idNum = Integer.parseInt(keyId);
+
+			// read each file in taskfolder
+			String filePathToDel=" ";
+			try{
+				for(File tasks : f.listFiles()) {
+					Task taskList = mapper.readValue(tasks, Task.class);
+					if(taskList.getId()==idNum) {
+						filePathToDel = tasks.getAbsolutePath();
+					}
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// snippet to delete file
+			File deleteFile = new File(filePathToDel);
+			if(deleteFile.exists()){
+				deleteFile.delete();
+				System.out.println("File deleted");	
+			} else {
+				System.out.println("File does not exist");
+			}
 		}
 
 	}
