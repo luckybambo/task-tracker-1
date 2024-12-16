@@ -17,8 +17,8 @@ Task Tracker project
 # Project Usage
 <p>To use the project, just clone the main branch into a git initialized directory.</p>
 <p>Head to the directory of the project then input the following command below:</p>
-<h2>javac -cp "jar/*" *.java</h2>
+<h3>javac -cp "jar/*" *.java</h3>
 <p>This command compiles the external JSON dependencies into the class path</p>
 
 <p>We then use the command below:</p>
-<h2>java -cp ".;jar/*" Main `method` `parameter(if method needs a parameter)` </h2>
+<h3>java -cp ".;jar/*" Main `method` `parameter(if method needs a parameter)` </h3>
