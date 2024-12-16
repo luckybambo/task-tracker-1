@@ -3,5 +3,22 @@ Task Tracker project
 
 <h3>By Zeus Añora</h3>
 
+<p>The project is a CLI task tracker that acts as a task manager for day-to-day tasks. This project makes use of command line arguments and json external libraries to function</p>
+
 <p>This is project is not for commercial use, this project can be used and shared by anyone</p>
 
+<p>This project uses the following modules during development:</p>
+<ul>
+  <li>Java</li>
+  <li>JSON</li>
+  <li>Windows PowerShell (Or other command line terminal)</li>
+</ul>
+
+# Project Usage
+<p>To use the project, just clone the main branch into a git initialized directory.</p>
+<p>Head to the directory of the project then input the following command below:</p>
+<h2>javac -cp "jar/*" *.java</h2>
+<p>This command compiles the external JSON dependencies into the class path</p>
+
+<p>We then use the command below:</p>
+<h2>java -cp ".;jar/*" Main `method` `parameter(if method needs a parameter)` </h2>
