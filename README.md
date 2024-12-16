@@ -23,8 +23,8 @@ Task Tracker project
 <p>This command compiles the external JSON dependencies into the class path</p>
 <br>
 <p>We then use the command below:</p>
-<h3>java -cp ".;jar/*" Main `method` `parameter(if method needs a parameter)` </h3>
-<p>Inside `method` is the method of the project while inside `parameter` is the parameter that the method asks</p>
+<h3>java -cp ".;jar/*" Main `method` `parameter` </h3>
+<p>Inside `method` is the method of the project while inside `parameter` is the parameter that the method may need</p>
 
 <br>
 
