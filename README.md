@@ -1,6 +1,6 @@
 # task-tracker-1
 Task Tracker project <br>
-<a href="https://roadmap.sh/projects/task-tracker">Project URL Here!</a>
+<a href="https://roadmap.sh/projects/task-tracker" target="_blank">Project URL Here!</a>
 
 <h3>By Zeus Añora</h3>
 
