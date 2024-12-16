@@ -32,5 +32,19 @@ Task Tracker project
 <br>
 <h3>To update task/s</h3>
 <ul>
-  <li>java -cp ".;jar/*" Main update `id`  <p>Inside id should be the id of the chosen file</p></li>
+  <li>java -cp ".;jar/*" Main update `id`</li>
+</ul>
+<br>
+<h3>To delete task/s</h3>
+<ul>
+  <li>java -cp ".;jar/*" Main delete `id`</li>
+  <li>java -cp ".;jar/*" Main delete all</li>
+</ul>
+<br>
+<h3>To show task/s</h3>
+<ul>
+  <li>java -cp ".;jar/*" Main show todo</li>
+  <li>java -cp ".;jar/*" Main show inprogress</li>
+  <li>java -cp ".;jar/*" Main show done</li>
+  <li>java -cp ".;jar/*" Main show all</li>
 </ul>
