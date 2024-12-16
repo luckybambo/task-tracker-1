@@ -15,6 +15,7 @@ Task Tracker project
 </ul>
 
 <br>
+
 # Project Usage
 <p>To use the project, just clone the main branch into a git initialized directory.</p>
 <p>Head to the directory of the project then input the following command below:</p>
@@ -26,6 +27,7 @@ Task Tracker project
 <p>Inside `method` is the method of the project while inside `parameter` is the parameter that the method asks</p>
 
 <br>
+
 # Project Methods
 <h3>To add task/s</h3>
 <ul>
