@@ -41,15 +41,15 @@ Task Tracker project
 <br>
 <h3>To delete task/s</h3>
 <ul>
-  <li>java -cp ".;jar/*" Main delete `id` <p>Method to delete a task (input the id of the task in `id`)</p></li>
+  <li>java -cp ".;jar/*" Main delete `id` <p>Method to delete a task (input the id of the task in `id`)</p></li><br>
   <li>java -cp ".;jar/*" Main delete all <p>Method to delete all tasks</p></li>
 </ul>
 <br>
 <h3>To show task/s</h3>
 <ul>
-  <li>java -cp ".;jar/*" Main show todo <p>Method to show tasks with "Todo" status</p></li>
-  <li>java -cp ".;jar/*" Main show inprogress <p>Method to show tasks with "In-progress" status</p></li>
-  <li>java -cp ".;jar/*" Main show done <p>Method to show tasks with "Done" status</p></li>
+  <li>java -cp ".;jar/*" Main show todo <p>Method to show tasks with "Todo" status</p></li><br>
+  <li>java -cp ".;jar/*" Main show inprogress <p>Method to show tasks with "In-progress" status</p></li><br>
+  <li>java -cp ".;jar/*" Main show done <p>Method to show tasks with "Done" status</p></li><br>
   <li>java -cp ".;jar/*" Main show all <p>Method to show all tasks</p></li>
 </ul>
 
