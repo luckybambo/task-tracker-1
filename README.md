@@ -19,7 +19,18 @@ Task Tracker project
 <p>Head to the directory of the project then input the following command below:</p>
 <h3>javac -cp "jar/*" *.java</h3>
 <p>This command compiles the external JSON dependencies into the class path</p>
-
+<br>
 <p>We then use the command below:</p>
 <h3>java -cp ".;jar/*" Main `method` `parameter(if method needs a parameter)` </h3>
-<p></p>
+<p>Inside `method` is the method of the project while inside `parameter` is the parameter that the method asks</p>
+
+# Project Methods
+<h3>To add task/s</h3>
+<ul>
+  <li>java -cp ".;jar/*" Main add</li>
+</ul>
+<br>
+<h3>To update task/s</h3>
+<ul>
+  <li>java -cp ".;jar/*" Main update `id`  <p>Inside id should be the id of the chosen file</p></li>
+</ul>
